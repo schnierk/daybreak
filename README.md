@@ -9,6 +9,9 @@ zu übernehmen. Es ist **noch nicht für echte Personaldaten bereit**. Was dafü
 
 Daybreak ist kostenlos und bleibt offen: Es steht unter der [AGPL-3.0](LICENSE). Mehr dazu unten.
 
+**Gleich ausprobieren:** [www.daybreak.sbs](https://www.daybreak.sbs). Auf der Anmeldeseite stehen Knöpfe für alle Rollen.
+Alle Besucher sehen dieselben erfundenen Daten, und die Demo wird jede Nacht neu angelegt. Trag dort nichts Persönliches ein.
+
 ## In English
 
 Daybreak is free HR software with switchable modules and multiple separated organizations. It is a
@@ -16,7 +19,9 @@ Daybreak is free HR software with switchable modules and multiple separated orga
 [go-live checklist](docs/GO-LIVE-MERKLISTE.md) (German). The user interface and most documentation are
 in German so far, and an English interface is on the [roadmap](docs/ROADMAP.md). Licensed under
 [AGPL-3.0](LICENSE): anyone may use, change and share it, and anyone offering a changed version over a
-network must share its source code. Quick start:
+network must share its source code. Try the public demo at [www.daybreak.sbs](https://www.daybreak.sbs): the sign-in page
+has a button for each role, the data is made up and shared by all visitors, and it is reset every night. Quick start on your
+own machine:
 
 ```bash
 npm ci && DAYBREAK_PRIMARY_DEMO=true npm start
