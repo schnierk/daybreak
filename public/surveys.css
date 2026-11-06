@@ -1,0 +1,52 @@
+/* Mitarbeiterbefragungen */
+.surveys-stack { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; margin: 24px 0; }
+.surveys-row { flex-wrap: wrap; }
+.surveys-row .grow { min-width: 200px; }
+.surveys-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.surveys-stack td small { display: block; color: var(--muted); margin-top: 3px; }
+
+.surveys-promise ul { margin: 8px 0 14px; padding-left: 18px; color: var(--muted); line-height: 1.5; }
+.surveys-promise li { margin-bottom: 6px; }
+.surveys-promise li b { color: var(--ink); }
+.surveys-promise h3 { font-size: 13px; margin: 14px 0 4px; }
+
+.surveys-form > p:first-child { margin-top: 0; }
+.surveys-question { border: 0; border-bottom: 1px solid var(--line); margin: 0; padding: 16px 0; min-width: 0; }
+.surveys-question legend { padding: 0; font-weight: 700; }
+.surveys-question small { display: block; }
+.surveys-question textarea { margin-top: 10px; min-height: 90px; }
+.surveys-warning { color: #a66b08; margin-top: 6px; }
+.surveys-choices { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.surveys-choice { position: relative; margin: 0; font-weight: 600; cursor: pointer; }
+.surveys-choice input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.surveys-choice span { display: block; min-width: 38px; padding: 8px 10px; text-align: center; border: 1px solid var(--line); border-radius: 9px; background: #fff; }
+.surveys-choice input:checked + span { background: var(--blue); border-color: var(--blue); color: #fff; }
+.surveys-choice input:focus-visible + span { outline: 2px solid var(--blue); outline-offset: 2px; }
+.surveys-scale-ends { display: flex; justify-content: space-between; gap: 12px; margin-top: 6px; color: var(--muted); }
+
+.surveys-result { display: grid; gap: 6px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.surveys-result:last-child { border-bottom: 0; }
+.surveys-result-value { display: flex; align-items: baseline; gap: 8px; }
+.surveys-result-value strong { font-size: 22px; }
+.surveys-quote { margin: 6px 0 0; padding: 8px 12px; border-left: 3px solid var(--line); background: var(--bg); border-radius: 0 8px 8px 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+.surveys-group { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.surveys-group:last-child { border-bottom: 0; }
+.surveys-group summary { cursor: pointer; }
+.surveys-interim { background: #fff8e9; }
+.surveys-hint { margin: 12px 0 0; font-size: 13px; }
+
+/* Am Handy wird die Tabelle zu Karten: So ist nichts abgeschnitten, und die Knöpfe bleiben immer sichtbar. */
+@media (max-width: 700px) {
+  .surveys-row .grow { min-width: 0; flex-basis: 100%; }
+  .card .table.surveys-table { display: block; overflow: visible; }
+  .surveys-table thead { display: none; }
+  .surveys-table tbody, .surveys-table tr, .surveys-table td { display: block; }
+  .surveys-table tr { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .surveys-table tr:last-child { border-bottom: 0; }
+  .surveys-table td { padding: 3px 0; border: 0; }
+  .surveys-table td[data-label] { display: flex; justify-content: space-between; align-items: center; gap: 12px; text-align: right; }
+  .surveys-table td[data-label]::before { content: attr(data-label); flex: 0 0 auto; color: var(--muted); font-size: 12px; font-weight: 600; text-align: left; }
+  .surveys-table td.surveys-actions { display: flex; padding-top: 8px; }
+  .surveys-choices { gap: 4px; }
+  .surveys-choice span { min-width: 34px; padding: 8px 6px; }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "daybreak",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Freie HR-Software mit Modulen und Mehrmandantenbetrieb. Machbarkeitsstudie und Demo.",
+  "license": "AGPL-3.0-only",
+  "main": "server.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node --test",
+    "superadmin:password": "node scripts/set-superadmin-password.js",
+    "automation:configure": "node scripts/configure-automation.js",
+    "backup": "node scripts/backup-all.js",
+    "migrate:postgres": "node scripts/migrate-to-postgres.js"
+  },
+  "type": "commonjs",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "better-sqlite3": "^12.11.1",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "pg": "^8.23.1"
+  }
+}

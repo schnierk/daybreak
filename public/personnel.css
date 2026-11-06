@@ -1,0 +1,74 @@
+.personnel-facts { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 14px 20px; margin: 14px 0 0; }
+.personnel-facts dt { color: var(--muted); font-size: 12px; font-weight: 600; }
+.personnel-facts dd { margin: 3px 0 0; font-weight: 600; overflow-wrap: anywhere; white-space: pre-line; }
+.personnel-hint { margin: 14px 0 0; font-size: 13px; }
+.personnel-status-line { margin: 10px 0 0; }
+.personnel-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; margin: 0 0 16px; }
+.personnel-filter-card { margin-bottom: 16px; }
+.personnel-filters { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0 14px; }
+.personnel-filters label { margin-top: 0; }
+.personnel-list-card td small { display: block; margin-top: 3px; color: var(--muted); }
+.personnel-actions { display: flex; flex-wrap: wrap; gap: 6px; }
+.personnel-actions .btn { padding: 7px 10px; font-size: 13px; }
+.personnel-change { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.personnel-change:last-child { border-bottom: 0; }
+.personnel-change small { display: block; margin-top: 4px; }
+.personnel-change-head { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 4px; }
+.personnel-notice { margin: 12px 0; padding: 12px 14px; border: 1px solid #f5e2b8; border-radius: 12px; background: #fff8e9; }
+.personnel-notice p { margin: 6px 0 0; }
+.personnel-notice[hidden] { display: none; }
+.personnel-notice .checkRow { display: flex; align-items: center; gap: 8px; margin: 10px 0 0; }
+.personnel-notice .checkRow input { width: auto; margin: 0; }
+.personnel-unit-inactive td { color: var(--muted); }
+.personnel-unit-name { display: inline-block; }
+.personnel-reassign small { display: block; color: var(--muted); }
+.personnel-reassign select { width: auto; min-width: 190px; max-width: 45%; }
+@media (max-width: 550px) {
+  .personnel-reassign { flex-wrap: wrap; }
+  .personnel-reassign .grow { flex-basis: 100%; }
+  .personnel-reassign select { flex: 1; max-width: none; min-width: 0; }
+}
+.personnel-search { margin-bottom: 12px; }
+.personnel-search label { margin-top: 0; }
+.personnel-count { margin: 0 0 8px; font-size: 13px; }
+.personnel-email { overflow-wrap: anywhere; }
+.personnel-lock-now { margin-top: 10px; }
+.personnel-lock-now[hidden] { display: none; }
+.personnel-reassign-card p { margin: 6px 0; }
+.personnel-export { margin-bottom: 24px; }
+.personnel-export-section { margin-top: 16px; }
+.personnel-export-section h2 { margin: 0; }
+.personnel-export-entry { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px 20px; margin: 12px 0 0; padding-top: 12px; border-top: 1px solid var(--line); }
+.personnel-export-entry dt { color: var(--muted); font-size: 12px; font-weight: 600; }
+.personnel-export-entry dd { margin: 2px 0 0; overflow-wrap: anywhere; white-space: pre-line; }
+
+/* Am Handy werden Tabellen zu Karten: So ist nichts abgeschnitten, und die Knöpfe bleiben immer sichtbar. */
+@media (max-width: 700px) {
+  .personnel-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .card .table.personnel-table { display: block; overflow: visible; }
+  .personnel-table thead { display: none; }
+  .personnel-table tbody, .personnel-table tr, .personnel-table td { display: block; }
+  .personnel-table tr { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .personnel-table tr:last-child { border-bottom: 0; }
+  .personnel-table td { padding: 3px 0; border: 0; }
+  .personnel-table td:empty { display: none; }
+  .personnel-table td[data-label] { display: flex; justify-content: space-between; gap: 12px; text-align: right; }
+  .personnel-table td[data-label]::before { content: attr(data-label); flex: 0 0 auto; color: var(--muted); font-size: 12px; font-weight: 600; text-align: left; }
+  .personnel-table td:last-child { padding-top: 8px; }
+}
+
+/* Druckansicht der Datenauskunft: nur der Inhalt, ohne Navigation und Bedienelemente. */
+@media print {
+  body:has(.personnel-export) { background: #fff; }
+  body:has(.personnel-export) .sidebar,
+  body:has(.personnel-export) .moduleTabs,
+  body:has(.personnel-export) .dayo-root,
+  body:has(.personnel-export) footer,
+  body:has(.personnel-export) .talent-toast,
+  .personnel-no-print { display: none !important; }
+  body:has(.personnel-export) .shell { display: block; }
+  body:has(.personnel-export) .main { max-width: none; padding: 0; }
+  .personnel-export-section { padding: 0; border: 0; border-radius: 0; }
+  .personnel-export-section .personnel-change-head { break-after: avoid; }
+  .personnel-export-entry { break-inside: avoid; }
+}

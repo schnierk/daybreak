@@ -1,0 +1,39 @@
+.tenantName{display:block;font:600 12px 'DM Sans',sans-serif;color:#aeb9cf;padding:0 14px 10px;overflow-wrap:anywhere}
+.sidebar .profile #changePassword{margin-top:6px;padding:4px 8px;background:#2a3750;color:#dce3f1;font-size:11px}
+.table td b+small{display:block;margin-top:3px;color:var(--muted)}
+input[type=color]{height:44px;max-width:96px;padding:4px;cursor:pointer}
+.supportBanner{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:#fff8e9;border:1px solid #f4dfae;color:#6b4d0b;border-radius:12px;padding:10px 14px;margin:16px 0 0}
+.moduleArea{margin-top:26px}
+.moduleArea h2{font:700 16px 'Plus Jakarta Sans',sans-serif;margin:0 0 10px}
+.moduleGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.moduleCard{display:flex;flex-direction:column;gap:6px;padding:16px}
+.moduleCard.moduleOn{border-color:var(--blue)}
+.moduleCard p{margin:0}
+.moduleCardHead{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.moduleCardHead h3{margin:0;font-size:14px}
+.moduleSwitch{display:inline-flex;align-items:center;gap:6px;font-weight:600;margin:0;cursor:pointer;white-space:nowrap}
+.moduleSwitch input{width:auto;margin:0}
+.checkRow{display:flex;align-items:center;gap:8px;font-weight:500;margin:6px 0}
+.checkRow input{width:auto;margin:0}
+.checkGrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:2px 12px}
+.platformActions{display:flex;flex-wrap:wrap;gap:8px}
+.tempPassword{font-size:15px;font-weight:700;user-select:all}
+.rowInactive td{opacity:.6}
+.importError td{background:#fff5f5}
+.orgRules{display:grid;gap:12px;margin-top:18px;max-width:900px}
+.orgRule{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;padding:16px}
+.orgRuleText{flex:1 1 320px;min-width:0}
+.orgRuleText h3{margin:0 0 4px;font-size:14px}
+.orgRuleText p{margin:0}
+.orgRuleHint{margin-top:6px!important;color:#6b4d0b;font-weight:600}
+.orgRuleChoice{flex:1 1 260px;margin:0}
+.orgRuleChoice select{width:100%;margin-top:4px}
+.sourceNote{margin:14px 0 0;font-size:12px;color:var(--muted);text-align:center}
+.sourceNote a{color:inherit;text-decoration:underline}
+.sidebar .sourceNote{margin:8px 0 0;font-size:11px;color:#9fb0cc;text-align:left}
+.orgFieldset{border:0;padding:0;margin:0;min-width:0}
+.orgFieldset[disabled]{opacity:.65}
+
+.importProblems{margin:0 0 12px;padding:10px 12px;border-radius:10px;background:#fff1f3;color:#8a2336}
+.importProblems ul{margin:6px 0 0;padding-left:18px;max-height:180px;overflow:auto}
+a.btn{display:inline-block;text-decoration:none}

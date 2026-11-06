@@ -1,0 +1,34 @@
+.compensationBlock { margin-top: 18px; }
+.compensationBlock h3 { margin: 16px 0 8px; }
+.compensationNote { margin: 14px 0 0; padding: 11px 14px; border-radius: 10px; background: #eef1fa; color: #4d5d78; }
+.compensationNoteAlert { background: #fde8ec; color: #a32b42; font-weight: 700; }
+.compensationAlert { background: #fde8ec; color: #a32b42; white-space: nowrap; }
+.compensationActions { display: flex; flex-wrap: wrap; gap: 6px; }
+.compensationActions .btn { padding: 6px 9px; font-size: 12px; }
+.compensationLink { padding: 0; border: 0; background: none; color: var(--blue); font: inherit; font-weight: 700; text-align: left; cursor: pointer; }
+.compensationLink:hover { text-decoration: underline; }
+.compensationLinkButton { display: inline-block; text-decoration: none; }
+.compensationChecklist { display: grid; gap: 6px; max-height: 320px; overflow: auto; }
+.compensationRoundHead { flex-wrap: wrap; gap: 8px; }
+.compensationResult summary { cursor: pointer; }
+.compensationResult summary b { margin-right: 6px; }
+.compensationResult[open] summary { margin-bottom: 12px; }
+/* Unten rechts sitzt Dayo. So lässt sich auch die letzte Zeile über Dayo hinaus scrollen. */
+.compensationPageEnd { height: 130px; }
+
+/* Am Handy liegen Knöpfe nicht versteckt rechts neben der Tabelle: Jede Zeile wird eine Karte. */
+@media (max-width: 760px) {
+  .card .table.compensationTable { display: block; overflow: visible; }
+  .compensationTable thead { display: none; }
+  .compensationTable tbody, .compensationTable tr { display: block; }
+  .compensationTable tr { padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .compensationTable tr:last-child { border-bottom: 0; }
+  .compensationTable td { display: block; overflow: hidden; padding: 5px 0 5px 128px; border: 0; overflow-wrap: anywhere; }
+  .compensationTable td::before { content: attr(data-label); float: left; width: 118px; margin-left: -128px; color: var(--muted); font-size: 12px; }
+  .compensationTable td:empty { display: none; }
+  .compensationTable td:first-child, .compensationTable td[data-label=""] { padding-left: 0; }
+  .compensationTable td:first-child { font-weight: 700; }
+  .compensationTable td:first-child small { font-weight: 400; }
+  .compensationTable td:first-child::before, .compensationTable td[data-label=""]::before { display: none; }
+  .compensationAlert { white-space: normal; }
+}

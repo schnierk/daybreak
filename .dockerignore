@@ -1,0 +1,12 @@
+node_modules
+.git
+.github
+data
+backups
+loop.db
+loop.db-*
+*.db
+*.db-*
+.env
+.env.*
+!.env.example

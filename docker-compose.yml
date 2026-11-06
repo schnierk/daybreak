@@ -1,0 +1,16 @@
+# Startet die Demo mit erfundenen Daten und dem öffentlich bekannten Passwort demo1234.
+# Nur zum Ausprobieren. Nie mit echten Personaldaten verwenden, siehe docs/GO-LIVE-MERKLISTE.md.
+services:
+  daybreak:
+    build: .
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      DAYBREAK_PRIMARY_DEMO: "true"
+      # Nur über http://localhost nutzbar. Hinter HTTPS: "auto" und DAYBREAK_TRUST_PROXY setzen.
+      SESSION_COOKIE_SECURE: "false"
+    volumes:
+      - daybreak-daten:/data
+
+volumes:
+  daybreak-daten:

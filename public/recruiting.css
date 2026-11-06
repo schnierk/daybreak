@@ -1,0 +1,50 @@
+.recruiting-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.recruiting-filter{width:auto;min-width:170px;margin:0}
+.recruiting-table td small{display:block;color:var(--muted);margin-top:3px}
+.recruiting-text{margin:10px 0;white-space:pre-wrap;overflow-wrap:anywhere;line-height:1.45}
+.recruiting-block{display:block;color:var(--muted);margin-top:3px}
+.recruiting-note{background:#fff8e9;border:1px solid #f4dfae;color:#6b4d0b;border-radius:10px;padding:10px 12px;margin:10px 0;line-height:1.45}
+.recruiting-board{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(190px,1fr);gap:12px;overflow-x:auto;padding-bottom:8px;margin-top:18px}
+.recruiting-column{background:#f6f8fc;border:1px solid var(--line);border-radius:13px;padding:11px;min-height:130px}
+.recruiting-column h3{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0;font-size:13px}
+.recruiting-card{display:grid;gap:7px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px;margin-top:9px}
+.recruiting-card b{overflow-wrap:anywhere}
+.recruiting-card small{color:var(--muted)}
+.recruiting-card-tag{justify-self:start}
+.recruiting-card-actions{display:grid;grid-template-columns:36px 1fr 36px;gap:5px;align-items:center}
+.recruiting-card-actions .btn{padding:6px 4px;text-align:center}
+.recruiting-detail{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:16px;margin-top:18px;align-items:start}
+.recruiting-stack{display:grid;gap:16px;min-width:0}
+.recruiting-interview{border-top:1px solid var(--line);padding:12px 0;overflow-wrap:anywhere}
+.recruiting-interview:first-of-type{border-top:0}
+.recruiting-feedback{background:#f8faff;border-left:3px solid #9eb3f7;border-radius:0 8px 8px 0;padding:9px 11px;margin-top:9px}
+.recruiting-feedback .recruiting-text{margin:7px 0 0}
+.recruiting-checklist{display:grid;gap:2px;max-height:220px;overflow:auto;border:1px solid var(--line);border-radius:9px;padding:6px 10px}
+#uiModalForm textarea.recruiting-copy{min-height:290px;font-family:inherit;line-height:1.45}
+.recruiting-search{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px}
+.recruiting-search input[type=search]{flex:1 1 220px;width:auto;margin:0}
+.recruiting-inactive{opacity:.6}
+.recruiting-job{overflow-wrap:anywhere}
+.recruiting-job h2{margin-bottom:4px}
+/* Dayo sitzt unten rechts. Mit dem Abstand lässt sich auch der letzte Knopf darüber schieben. */
+.main:has([data-recruiting-action]){padding-bottom:120px}
+/* Lange Wörter in Titeln dürfen die Kopfzeile nicht sprengen. */
+.main:has([data-recruiting-action]) .top>div:first-child{min-width:0;overflow-wrap:anywhere}
+@media(max-width:900px){
+  .recruiting-detail{grid-template-columns:minmax(0,1fr)}
+}
+/* Auf dem Handy werden aus Tabellenzeilen Karten: So bleiben Knöpfe sichtbar, ohne seitlich zu wischen. */
+@media(max-width:550px){
+  .recruiting-board{grid-auto-flow:row;grid-auto-columns:auto}
+  .recruiting-column{min-height:0}
+  .card .recruiting-table{display:block;overflow:visible}
+  .recruiting-table thead{display:none}
+  .recruiting-table tbody,.recruiting-table tr,.recruiting-table td{display:block;width:100%}
+  .recruiting-table tr{padding:12px 0;border-bottom:1px solid var(--line)}
+  .recruiting-table tr:last-child{border-bottom:0}
+  .recruiting-table td{padding:3px 0;border:0;overflow-wrap:anywhere}
+  .recruiting-table td[data-label]::before{content:attr(data-label) ": ";color:var(--muted);font-size:12px}
+  .recruiting-table .btn{margin-top:6px}
+  .recruiting-stage{flex-wrap:wrap}
+  .recruiting-stage .grow{flex-basis:100%}
+}

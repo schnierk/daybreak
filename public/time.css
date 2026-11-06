@@ -1,0 +1,56 @@
+.time-stats{grid-template-columns:repeat(auto-fit,minmax(170px,1fr));margin:16px 0 8px}
+.time-explain{margin:0 0 12px;font-size:13px}
+.time-duo{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin:18px 0}
+.time-duo .time-section{margin-top:0}
+.time-section{margin-top:18px}
+.time-section>.sectionHead{flex-wrap:wrap}
+.time-actions{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.time-actions input{width:auto}
+.time-actions a.btn{text-decoration:none;display:inline-block}
+.time-switch{display:inline-flex;align-items:center;gap:8px}
+.time-note{display:block;margin-top:3px}
+.time-select{width:auto}
+.time-clock{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-top:18px}
+.time-clock-running{border-color:var(--blue);background:#f4f6ff}
+.time-clock-blocked{border-color:#f4dfae;background:#fff8e9}
+.time-free{background:#f8f9fc}
+.time-table td{vertical-align:top}
+.time-notice{background:#fff8e9;border:1px solid #f4dfae;color:#6b4d0b;border-radius:10px;padding:9px 12px;margin:0 0 12px}
+.time-decider{margin:0 0 10px}
+.time-hints{background:#f4f6ff;border:1px solid #d6dcf7;border-radius:10px;padding:10px 14px;margin:0 0 14px}
+.time-hints h3{margin:0 0 6px;font-size:13px}
+.time-hints ul{margin:0;padding-left:18px}
+.time-hints li{margin:3px 0}
+.time-inline{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.time-inline input{width:110px}
+.time-inline .error{flex-basis:100%;margin:0}
+.time-tabs{overflow-x:auto;margin-top:6px}
+.time-tabs button{flex:0 0 auto;white-space:nowrap}
+.time-search{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.time-search input{flex:1 1 240px;min-width:0;max-width:420px}
+.time-left-toggle{margin:0 0 10px}
+.time-empty-search{margin:10px 0 0}
+.time-person-card{scroll-margin-top:84px;outline:none;border-color:var(--blue)}
+.time-row-open{background:#f4f6ff}
+.modal .card.time-review{width:min(900px,100%)}
+
+/* Am Handy Karten statt Tabelle: Die Knöpfe lägen sonst unsichtbar neben dem sichtbaren Bereich. */
+@media(max-width:760px){
+  .card table.time-cards,.time-cards tbody,.time-cards tr,.time-cards td{display:block;width:100%}
+  .card table.time-cards{overflow:visible}
+  .time-cards thead{display:none}
+  .time-cards tr{border:1px solid var(--line);border-radius:12px;padding:8px 12px;margin-bottom:10px;background:#fff}
+  .time-cards tr.time-free{background:#f8f9fc}
+  .time-cards tr[hidden]{display:none}
+  .time-cards td{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border:0;padding:4px 0;text-align:right}
+  .time-cards td[data-label]::before{content:attr(data-label);flex:0 0 auto;color:var(--muted);font-weight:600;text-align:left}
+  .time-cards td>div{min-width:0}
+  .time-cards td:empty,.time-cards .time-no-entry{display:none}
+  .time-cards .time-card-actions{justify-content:flex-start;flex-wrap:wrap;padding-top:8px}
+  .time-cards .time-card-actions:empty{display:none}
+  .time-stats{grid-template-columns:repeat(auto-fit,minmax(130px,1fr))}
+  .time-search input{max-width:none}
+  .time-tabs{flex-wrap:wrap}
+  .time-switch{display:flex;width:100%}
+  .time-switch b{flex:1 1 auto;min-width:0;text-align:center}
+}

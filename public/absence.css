@@ -1,0 +1,63 @@
+.absence-stats{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin:12px 0 16px}
+.absence-duo{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin:18px 0}
+.absence-duo .absence-section{margin-top:0}
+.absence-section{margin-top:18px}
+.absence-head{margin-top:20px;margin-bottom:0}
+.absence-head h2{font:800 16px 'Plus Jakarta Sans',sans-serif;margin:0}
+.absence-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.absence-actions input,.absence-actions select{width:auto}
+.absence-actions a.btn{text-decoration:none;display:inline-block}
+.absence-section-actions{margin:10px 0 12px}
+.absence-switch{display:inline-flex;align-items:center;gap:8px}
+.absence-switch b{min-width:48px;text-align:center}
+.absence-note{display:block;margin-top:3px}
+.absence-notice{background:#fff8e9;border:1px solid #f4dfae;color:#6b4d0b;border-radius:10px;padding:9px 12px;margin:0 0 12px}
+.absence-overlap{display:block;margin-top:5px;color:#6b4d0b}
+.absence-flags .tag{display:inline-block;margin:2px 4px 2px 0}
+.absence-tabs{overflow-x:auto;margin-top:6px}
+.absence-tabs button{flex:0 0 auto;white-space:nowrap}
+.absence-search{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:10px 0}
+.absence-search input{flex:1 1 240px;min-width:0;max-width:420px}
+.absence-left-toggle{margin:0 0 10px}
+.absence-empty-search{margin:10px 0 0}
+.absence-scope{border:0;padding:0;margin:8px 0}
+.absence-scope legend{padding:0;margin-bottom:2px;font-weight:600}
+.absence-scope[hidden]{display:none}
+.absence-card-actions{white-space:nowrap}
+.absence-card-actions .btn+.btn{margin-left:4px}
+.absence-calendar{border-collapse:collapse;font-size:12px;min-width:100%}
+.absence-calendar th,.absence-calendar td{border:1px solid var(--line);padding:3px 2px;text-align:center;min-width:27px;height:32px;font-weight:600}
+.absence-calendar thead th{color:var(--muted);font-size:11px;line-height:1.25}
+.absence-calendar .absence-person{position:sticky;left:0;z-index:1;background:#fff;text-align:left;padding:4px 10px;min-width:150px;white-space:nowrap;font-weight:700}
+.absence-calendar .absence-group th{background:#f6f8fc;color:var(--muted);text-align:left;padding:6px 10px;height:auto;font-size:11px}
+.absence-calendar .absence-group span{position:sticky;left:10px}
+.absence-calendar .absence-person small{font-weight:500}
+.absence-weekend{background:#f1f3f8}
+.absence-holiday{background:#fff3dc}
+.absence-today{box-shadow:inset 0 0 0 2px var(--blue)}
+.absence-mark{background:#cfeee5;color:#0e6b57}
+.absence-mark-pending{background:#fff;color:#a66b08;box-shadow:inset 0 0 0 2px #efa532}
+.absence-mark-generic{background:#dfe5f2;color:#46567a}
+.absence-legend{display:flex;align-items:center;flex-wrap:wrap;gap:6px 12px;margin:12px 0 0;font-size:12px;color:var(--muted)}
+.absence-key{display:inline-grid;place-items:center;width:20px;height:20px;border-radius:4px;border:1px solid var(--line);margin-right:-6px;font-weight:700}
+
+/* Am Handy Karten statt Tabelle: Die Knöpfe lägen sonst unsichtbar neben dem sichtbaren Bereich. */
+@media(max-width:760px){
+  .card table.absence-cards,.absence-cards tbody,.absence-cards tr,.absence-cards td{display:block;width:100%}
+  .card table.absence-cards{overflow:visible}
+  .absence-cards thead{display:none}
+  .absence-cards tr{border:1px solid var(--line);border-radius:12px;padding:8px 12px;margin-bottom:10px;background:#fff}
+  .absence-cards tr[hidden]{display:none}
+  .absence-cards td{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border:0;padding:4px 0;text-align:right}
+  .absence-cards td[data-label]::before{content:attr(data-label);flex:0 0 auto;color:var(--muted);font-weight:600;text-align:left}
+  .absence-cards td>div{min-width:0}
+  .absence-cards td:empty{display:none}
+  .absence-cards .absence-card-actions{justify-content:flex-start;flex-wrap:wrap;white-space:normal;padding-top:8px}
+  .absence-cards .absence-card-actions:empty{display:none}
+  .absence-cards .absence-card-actions .btn+.btn{margin-left:0}
+  .absence-calendar .absence-person{min-width:112px;max-width:132px;white-space:normal;padding:4px 6px}
+  .absence-search input{max-width:none}
+  .absence-tabs{flex-wrap:wrap}
+  .absence-approval{flex-wrap:wrap}
+  .absence-approval .grow{flex:1 1 100%}
+}

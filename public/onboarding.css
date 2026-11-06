@@ -1,0 +1,30 @@
+.onboarding-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.onboarding-filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:12px}
+.onboarding-filters select{width:auto;min-width:170px;margin:0}
+.onboarding-progress{display:grid;grid-template-columns:1fr auto;gap:4px 10px;align-items:center}
+.onboarding-progress small{grid-column:1 / -1}
+.onboarding-progress-cell{min-width:170px}
+.onboarding-task-text{margin:6px 0 0;font-size:13px}
+.onboarding-task-done b{color:var(--muted);text-decoration:line-through}
+.onboarding-task .grow{min-width:0;overflow-wrap:anywhere}
+.onboarding-note{background:#fff8e9;border:1px solid #f4dfae;color:#6b4d0b;border-radius:10px;padding:10px 12px;margin:14px 0 0;line-height:1.45}
+.onboarding-table td small{display:block;color:var(--muted);margin-top:3px}
+/* Dayo sitzt unten rechts. Mit dem Abstand lässt sich auch der letzte Knopf darüber schieben. */
+.main:has([data-onboarding-action]){padding-bottom:120px}
+/* Lange Wörter in Titeln dürfen die Kopfzeile nicht sprengen. */
+.main:has([data-onboarding-action]) .top>div:first-child,.main:has([data-onboarding-action]) .card{min-width:0;overflow-wrap:anywhere}
+/* Auf dem Handy werden aus Tabellenzeilen Karten: So bleiben Knöpfe sichtbar, ohne seitlich zu wischen. */
+@media(max-width:550px){
+  .onboarding-task{flex-wrap:wrap}
+  .onboarding-task .grow{flex-basis:100%}
+  .card .onboarding-table{display:block;overflow:visible}
+  .onboarding-table thead{display:none}
+  .onboarding-table tbody,.onboarding-table tr,.onboarding-table td{display:block;width:100%}
+  .onboarding-table tr{padding:12px 0;border-bottom:1px solid var(--line)}
+  .onboarding-table tr:last-child{border-bottom:0}
+  .onboarding-table td{padding:3px 0;border:0;overflow-wrap:anywhere}
+  .onboarding-table td[data-label]::before{content:attr(data-label) ": ";color:var(--muted);font-size:12px}
+  .onboarding-table td[data-label] small{display:inline;margin-left:4px}
+  .onboarding-table .btn{margin-top:6px}
+  .onboarding-progress-cell{min-width:0}
+}

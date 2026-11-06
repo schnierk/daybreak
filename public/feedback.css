@@ -1,0 +1,509 @@
+.fb-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.fb-alert {
+  margin: 18px 0 0;
+  padding: 12px 15px;
+  border: 1px solid #f3d19a;
+  border-radius: 12px;
+  background: #fff8ec;
+  color: #7b5206;
+  line-height: 1.5;
+}
+
+.fb-unavailable {
+  margin-top: 24px;
+}
+
+.fb-subheading {
+  margin-top: 18px !important;
+}
+
+.fb-history summary {
+  min-height: 24px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* ---------- Fragebogen ---------- */
+
+.fb-question-section {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.fb-question-section:last-child {
+  border-bottom: 0;
+}
+
+.fb-question {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-bottom: 1px solid #eef1f6;
+}
+
+.fb-question:last-child {
+  border-bottom: 0;
+}
+
+.fb-question-main {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 6px 10px;
+  align-items: start;
+  min-width: 0;
+}
+
+.fb-question-main small {
+  grid-column: 2;
+  color: var(--muted);
+}
+
+.fb-question-main .tag {
+  justify-self: start;
+}
+
+.fb-question .btn {
+  padding: 7px 10px;
+  font-size: 12px;
+}
+
+/* ---------- Feedback geben ---------- */
+
+.fb-form-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  background: linear-gradient(125deg, #edf7ff, #f8f4ff);
+}
+
+.fb-form-hero small,
+.fb-result-section h3,
+.fb-comment-block h3 {
+  font-size: 11px;
+  color: var(--muted);
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+/* Mit der Tabulatortaste darf das nächste Feld nicht unter der festen Leiste landen. */
+html:has(.fb-response-form) {
+  scroll-padding-bottom: 90px;
+}
+
+.fb-form-section {
+  margin: 16px 0;
+}
+
+.fb-form-section h2 {
+  margin-bottom: 4px;
+}
+
+.fb-form-section > p {
+  margin-top: 0;
+}
+
+/* Eine Legende sitzt auf der oberen Kante. Der Abstand muss deshalb außen liegen, sonst rutscht er unter die Frage. */
+.fb-rating {
+  min-width: 0;
+  margin: 16px 0 0;
+  padding: 0 0 16px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.fb-rating:last-child {
+  border-bottom: 0;
+}
+
+.fb-rating legend {
+  max-width: 100%;
+  padding: 0;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.fb-rating small,
+.fb-text-question small {
+  display: block;
+  margin: 5px 0 10px;
+  color: var(--muted);
+}
+
+.fb-rating-options {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.fb-rating-options label {
+  margin: 0;
+  font-size: 13px;
+}
+
+/* Das unsichtbare Feld muss genau die Fläche seiner Note bedecken. Liegt es frei auf der Seite,
+   übernimmt es die Breite aus style.css und fängt Klicks auf alles daneben ab. */
+.fb-score {
+  position: relative;
+  display: block;
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+}
+
+.fb-score input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.fb-score span {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #c9d2e3;
+  border-radius: 10px;
+  background: #fff;
+  color: #4d5d78;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.fb-score:hover span {
+  border-color: #90a5f6;
+}
+
+.fb-score input:checked + span {
+  border-color: var(--blue);
+  background: var(--blue);
+  color: #fff;
+}
+
+.fb-score input:focus-visible + span {
+  outline: 3px solid rgba(76, 103, 236, 0.45);
+  outline-offset: 2px;
+}
+
+.fb-rating-options .fb-na {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  margin-left: 6px;
+  padding: 0 10px;
+  border-radius: 10px;
+  color: #4d5d78;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.fb-rating-options .fb-na:hover {
+  background: #f2f4fb;
+}
+
+.fb-na input {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  accent-color: var(--blue);
+  cursor: pointer;
+}
+
+.fb-text-question {
+  padding: 16px 0 0;
+}
+
+.fb-text-question label {
+  margin: 0 0 6px;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.fb-text-question textarea {
+  min-height: 88px;
+  margin-top: 4px;
+}
+
+.fb-missing {
+  margin: 0 -10px;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-radius: 10px;
+  background: #fde9ed;
+}
+
+/* Rechts bleibt Platz, damit Dayo in der Ecke keinen Knopf verdeckt. */
+.fb-submitbar {
+  position: sticky;
+  bottom: 12px;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin: 18px 130px 18px 0;
+  padding: 11px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 8px 26px #1d294015;
+}
+
+.fb-submitbar-main {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.fb-decline {
+  background: #fff;
+  border: 1px solid #e3b5bf;
+  color: #b4314c;
+}
+
+/* ---------- Bericht ---------- */
+
+.fb-result-section {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.fb-result-section:last-child {
+  border-bottom: 0;
+}
+
+.fb-result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.fb-result-score {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+  padding: 10px;
+  border: 1px solid #e1e6f1;
+  border-radius: 10px;
+  background: #fafbff;
+}
+
+.fb-result-score span,
+.fb-result-score small {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.fb-result-score b {
+  color: var(--blue);
+  font: 800 21px 'Plus Jakarta Sans';
+}
+
+.fb-result-score i {
+  margin-left: 2px;
+  color: var(--muted);
+  font-size: 11px;
+  font-style: normal;
+}
+
+.fb-compare {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.fb-compare th {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.fb-compare td,
+.fb-compare th {
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.fb-compare .fb-num {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.fb-compare .positive {
+  color: #16866e;
+  font-weight: 700;
+}
+
+.fb-compare .negative {
+  color: #b4314c;
+  font-weight: 700;
+}
+
+.fb-side-cards {
+  display: grid;
+  align-content: start;
+  gap: 16px;
+}
+
+.fb-comment-block {
+  padding: 12px 0;
+}
+
+.fb-comment-block h3 {
+  margin: 0 0 8px;
+  text-transform: none;
+  font-size: 13px;
+  letter-spacing: 0;
+}
+
+.fb-comments {
+  display: grid;
+  gap: 10px;
+}
+
+.fb-comments blockquote {
+  margin: 0;
+  padding: 11px 13px;
+  border-left: 3px solid #9eb3f7;
+  background: #f8faff;
+}
+
+.fb-comments blockquote small {
+  color: var(--muted);
+  font-weight: 800;
+}
+
+.fb-comments blockquote p {
+  margin: 5px 0 0;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 900px) {
+  .fb-result-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fb-form-hero {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 550px) {
+  .fb-result-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .fb-question {
+    flex-direction: column;
+  }
+
+  .fb-actions .btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .fb-question-main {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .fb-question-main small {
+    grid-column: auto;
+  }
+
+  .fb-rating-options .fb-na {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  /* Auf dem Handy würde eine feste Leiste die Fragen verdecken. Sie steht deshalb am Ende des Formulars. */
+  .fb-submitbar {
+    position: static;
+    align-items: stretch;
+    flex-direction: column;
+    margin: 18px 0 40px;
+  }
+
+  .fb-submitbar-main {
+    flex-direction: column;
+  }
+
+  .fb-submitbar .btn {
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .fb-decline {
+    margin-top: 14px;
+  }
+
+  body:has(.fb-response-form) .dayo-root {
+    display: none;
+  }
+
+  .fb-compare thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .fb-compare tr {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px 8px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .fb-compare td {
+    display: block;
+    padding: 0;
+    border: 0;
+  }
+
+  .fb-compare td:first-child {
+    grid-column: 1 / -1;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .fb-compare .fb-num {
+    text-align: left;
+    font-size: 15px;
+  }
+
+  .fb-compare td[data-label]::before {
+    content: attr(data-label);
+    display: block;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 700;
+  }
+}

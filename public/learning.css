@@ -1,0 +1,28 @@
+/* Lernen und Pflichtschulungen */
+.learning-stack { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; margin: 24px 0; }
+.learning-row { flex-wrap: wrap; }
+.learning-row .grow { min-width: 220px; }
+.learning-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.learning-link { display: inline-block; text-decoration: none; }
+.learning-note { color: #b4314c !important; }
+.learning-bar { margin-top: 6px; min-width: 90px; }
+.learning-person { padding: 12px 0; border-bottom: 1px solid var(--line); }
+.learning-person:last-child { border-bottom: 0; }
+.learning-person summary { cursor: pointer; }
+.learning-person .tableWrap { margin-top: 10px; }
+.learning-person td small, .learning-section td small { display: block; color: var(--muted); margin-top: 3px; }
+
+/* Am Handy werden Tabellen zu Karten: So ist nichts abgeschnitten, und die Knöpfe bleiben immer sichtbar. */
+@media (max-width: 700px) {
+  .learning-row .grow { min-width: 0; flex-basis: 100%; }
+  .card .table.learning-table { display: block; overflow: visible; }
+  .learning-table thead { display: none; }
+  .learning-table tbody, .learning-table tr, .learning-table td { display: block; }
+  .learning-table tr { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .learning-table tr:last-child { border-bottom: 0; }
+  .learning-table td { padding: 3px 0; border: 0; }
+  .learning-table td:empty { display: none; }
+  .learning-table td[data-label] { display: flex; justify-content: space-between; align-items: center; gap: 12px; text-align: right; }
+  .learning-table td[data-label]::before { content: attr(data-label); flex: 0 0 auto; color: var(--muted); font-size: 12px; font-weight: 600; text-align: left; }
+  .learning-table td.learning-actions { display: flex; padding-top: 8px; }
+}

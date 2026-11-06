@@ -1,0 +1,35 @@
+.successionBlock { margin-top: 18px; }
+.successionNote { margin: 14px 0 0; padding: 11px 14px; border-radius: 10px; background: #eef1fa; color: #4d5d78; }
+.successionNoteAlert { background: #fff3dc; color: #a66b08; font-weight: 700; }
+.successionHigh { background: #fde8ec; color: #a32b42; }
+.successionMulti { background: #eee9ff; color: #5c43c4; }
+.successionLink { padding: 0; border: 0; background: none; color: var(--blue); font: inherit; font-weight: 700; text-align: left; cursor: pointer; }
+.successionLink:hover { text-decoration: underline; }
+.successionCandidate { margin-top: 12px; }
+.successionCandidate h3 { margin: 0; }
+.successionCandidate p { margin: 8px 0; }
+.successionRemoved { opacity: 0.65; }
+.successionActions { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
+.successionSupport { margin-top: 10px; padding: 10px 12px; border-radius: 10px; background: #f6f8fc; }
+.successionSupport details, .successionHistory { margin-top: 8px; }
+.successionSupport summary, .successionHistory summary { cursor: pointer; color: #4d5d78; font-weight: 700; }
+.successionMatrixCell { text-align: center; font-weight: 700; color: #9aa6ba; }
+.successionMatrixFilled { background: #fff3dc; color: #a66b08; }
+/* Unten rechts sitzt Dayo. So lässt sich auch die letzte Zeile über Dayo hinaus scrollen. */
+.successionPageEnd { height: 130px; }
+.successionCandidate .sectionHead { flex-wrap: wrap; gap: 8px; }
+
+/* Am Handy liegen Knöpfe nicht versteckt rechts neben der Tabelle: Jede Zeile wird eine Karte. */
+@media (max-width: 760px) {
+  .card .table.successionTable { display: block; overflow: visible; }
+  .successionTable thead { display: none; }
+  .successionTable tbody, .successionTable tr { display: block; }
+  .successionTable tr { padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .successionTable tr:last-child { border-bottom: 0; }
+  .successionTable td { display: block; overflow: hidden; padding: 5px 0 5px 128px; border: 0; overflow-wrap: anywhere; }
+  .successionTable td::before { content: attr(data-label); float: left; width: 118px; margin-left: -128px; color: var(--muted); font-size: 12px; }
+  .successionTable td:empty { display: none; }
+  .successionTable td:first-child { padding-left: 0; font-weight: 700; }
+  .successionTable td:first-child::before { display: none; }
+  .successionActions { justify-content: flex-start; }
+}

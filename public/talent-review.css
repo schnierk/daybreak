@@ -1,0 +1,53 @@
+.tr-actions{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.tr-period-select{width:auto;min-width:190px}.tr-filter-card{margin-bottom:16px}.tr-filter-grid{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:10px}.tr-filter{margin:0;display:grid;gap:5px}.tr-filter span{font-size:11px;color:var(--muted);font-weight:800}.tr-filter select{margin:0}.tr-mini-matrix{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:14px}.tr-mini-cell{min-height:75px;border:1px solid #dcdcf1;border-radius:10px;padding:11px;background:linear-gradient(145deg,#fbfbff,#f1efff);display:grid;gap:4px}.tr-mini-cell small,.tr-support span,.tr-keyvalue span,.tr-history small{color:var(--muted);font-weight:600}.tr-mini-cell b{font:800 23px 'Plus Jakarta Sans';color:var(--purple)}.tr-keyvalue{display:grid;grid-template-columns:42px 1fr;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}.tr-keyvalue:last-child{border-bottom:0}.tr-keyvalue b{font:800 24px 'Plus Jakarta Sans';color:var(--blue)}.tr-quick .card{min-height:165px}.tr-box,.tr-box-big{display:inline-grid;place-items:center;border-radius:9px;background:#ede8ff;color:#6649b6;font-weight:800;padding:6px 8px;font-size:12px}.tr-box-big{font-size:21px;padding:9px 12px}.tr-note{font-size:12px;color:#76618e;margin:6px 0 0}.tr-review-hero{display:flex;justify-content:space-between;align-items:center;background:linear-gradient(125deg,#f0f1ff,#faf7ff)}.tr-score-row{display:flex;gap:12px;margin-top:12px}.tr-score-row>div{min-width:110px;background:#fff;border:1px solid #dedff4;border-radius:11px;padding:10px;display:grid;gap:4px}.tr-score-row span,.tr-effective small,.tr-read-grid small{font-size:10px;color:var(--muted);font-weight:800;letter-spacing:.6px;text-transform:uppercase}.tr-score-row b{font:800 26px 'Plus Jakarta Sans';color:var(--blue)}.tr-score-row i{font-style:normal;font-size:12px;color:var(--muted);margin-left:2px}.tr-effective{display:grid;gap:6px;text-align:right}.tr-effective>b{font:800 27px 'Plus Jakarta Sans';color:var(--purple)}.tr-effective span{color:var(--muted);max-width:180px}.tr-review-form textarea{min-height:78px}.tr-criteria{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px}.tr-criterion{padding:11px;border:1px solid var(--line);background:#fafbff;border-radius:10px}.tr-criterion label{margin-top:0}.tr-criterion textarea{margin-top:7px;min-height:55px}.tr-read-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.tr-read-grid>div{border-left:3px solid #d9d1ff;background:#fbfaff;padding:11px 13px}.tr-read-grid p{white-space:pre-wrap;line-height:1.5;margin:7px 0 0}.tr-rating-list{display:grid;grid-template-columns:1fr 1fr;gap:7px}.tr-rating-list>div{border-bottom:1px solid var(--line);padding:8px 0;display:grid;gap:3px}.tr-rating-list small{color:var(--muted)}.tr-support{display:grid;grid-template-columns:1fr auto;gap:9px 12px;align-items:center}.tr-support b{font-size:15px}.tr-history{display:grid;gap:0}.tr-history p{border-bottom:1px solid var(--line);padding:8px 0;margin:0;display:grid;gap:3px}.tr-history span{font-size:12px;color:#76618e}.tr-axis-label{font-size:12px;color:var(--muted);font-weight:800;margin:7px 0}.tr-axis-top{text-align:right}.tr-nine-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid #d9d7ef;border-radius:13px;overflow:hidden}.tr-nine-cell{min-height:162px;padding:13px;border-right:1px solid #d9d7ef;border-bottom:1px solid #d9d7ef;background:#fff}.tr-nine-cell:nth-child(3n){border-right:0}.tr-nine-cell:nth-last-child(-n+3){border-bottom:0}.tr-nine-cell:nth-child(1),.tr-nine-cell:nth-child(2),.tr-nine-cell:nth-child(3){background:#f4f0ff}.tr-nine-cell:nth-child(4),.tr-nine-cell:nth-child(5),.tr-nine-cell:nth-child(6){background:#fafbff}.tr-nine-cell small{color:var(--muted);font-weight:700}.tr-nine-cell h3{font:800 13px 'Plus Jakarta Sans';margin:7px 0 9px}.tr-person-chip{display:block;width:100%;text-align:left;background:#fff;border:1px solid #d8dce9;border-radius:8px;padding:7px;margin-top:5px;color:var(--ink);font-weight:700}.tr-person-chip span{display:block;color:var(--muted);font-size:11px;font-weight:500;margin-top:2px}.tr-modal{max-width:680px}.tr-modal textarea{min-height:76px}@media(max-width:900px){.tr-filter-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.tr-review-hero{align-items:flex-start;flex-direction:column}.tr-effective{text-align:left}.tr-criteria,.tr-read-grid,.tr-rating-list{grid-template-columns:1fr}.tr-nine-cell{min-height:135px}}@media(max-width:550px){.tr-filter-grid{grid-template-columns:1fr}.tr-mini-matrix{grid-template-columns:repeat(3,1fr)}.tr-mini-cell{min-height:60px;padding:7px}.tr-mini-cell b{font-size:18px}.tr-score-row{flex-wrap:wrap}.tr-nine-grid{grid-template-columns:1fr}.tr-nine-cell,.tr-nine-cell:nth-child(3n),.tr-nine-cell:nth-last-child(-n+3){border-right:0;border-bottom:1px solid #d9d7ef}.tr-nine-cell:last-child{border-bottom:0}.tr-period-select{width:100%}.tr-actions{width:100%}}
+
+/* Formulare: Rückmeldung nach dem Speichern und was zum Einreichen noch fehlt */
+.tr-form-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:14px 0 4px}
+.tr-form-actions .btn:disabled,.tr-item-actions .btn:disabled,.tr-actions .btn:disabled{opacity:.6;cursor:progress}
+.tr-save-note{font-size:12px;color:var(--muted);font-weight:600}
+.tr-save-note.saved{color:#16866e}
+.tr-problems{margin:12px 0;padding:11px 13px;border-radius:10px;background:#fde9ed;color:#8f2239;font-size:13px}
+.tr-problems ul{margin:6px 0 0;padding-left:18px}
+.tr-problems[hidden]{display:none}
+.tr-hint{display:block;margin-top:5px;color:var(--muted);font-size:12px;line-height:1.4}
+.tr-callout{margin:12px 0;padding:11px 13px;border-radius:10px;background:#eef2ff;color:#33426b;font-size:13px;line-height:1.45}
+.tr-callout p{margin:0 0 6px}
+.tr-callout p:last-child{margin-bottom:0}
+.tr-callout .btn{margin-top:4px}
+.tr-callout .checkline{margin:8px 0 0}
+.tr-callout.warning{background:#fff4dd;color:#6d4c07}
+.tr-callout-card{padding:6px 14px}
+.tr-confirm p{margin:10px 0;line-height:1.45}
+.tr-dialog-cancel{margin-top:8px}
+
+/* Listen: Stand, Knöpfe und Rückweg */
+.tr-tags{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;margin-top:7px}
+.tr-state{font-size:12px;color:var(--muted);font-weight:600}
+.tr-item-actions{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:6px;flex:0 0 auto;max-width:55%}
+.tr-backrow{margin:14px 0 -8px}
+.tr-person-list{display:grid;gap:2px;margin:10px 0;max-height:300px;overflow:auto}
+.tr-person-list .checkline{margin:0;padding:7px 2px;border-bottom:1px solid var(--line)}
+.tr-effective>b{font-size:20px;line-height:1.25}
+.tr-mini-cell small{line-height:1.3;font-size:11px}
+.tr-self-score{margin-bottom:12px}
+.tr-note{white-space:pre-wrap}
+.tr-single>.wide{grid-column:1/-1}
+.tr-score-row span{overflow-wrap:anywhere}
+
+/* Die Schmalansicht darf nichts abschneiden: Lange Wörter und Knöpfe brechen um. */
+.talent-item>div{min-width:0}
+.talent-item b,.talent-item small,.tr-note,.tr-read-grid p{overflow-wrap:anywhere}
+@media(max-width:900px){
+  .tr-item-actions{max-width:none;justify-content:flex-start}
+  .tr-actions{justify-content:flex-start}
+}
+@media(max-width:550px){
+  .tr-item-actions{width:100%}
+  .tr-mini-cell small{font-size:10px}
+  .tr-score-row>div{flex:1 1 120px;min-width:0}
+  .tr-form-actions .btn{flex:1 1 100%}
+  .tr-save-note{flex:1 1 100%}
+  .tr-review-hero{gap:12px}
+}
+
+.tr-list-filters{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 12px}
+.tr-list-filters input,.tr-list-filters select{flex:1 1 200px;max-width:320px}

@@ -1,0 +1,284 @@
+:root {
+  --dayo-blue: #0567ad;
+  --dayo-blue-dark: #034d86;
+  --dayo-yellow: #ffad20;
+  --dayo-panel-shadow: 0 24px 70px rgba(21, 34, 58, .24), 0 6px 20px rgba(21, 34, 58, .12);
+}
+
+.sr-only {
+  position: absolute!important;
+  width: 1px!important;
+  height: 1px!important;
+  padding: 0!important;
+  margin: -1px!important;
+  overflow: hidden!important;
+  clip: rect(0, 0, 0, 0)!important;
+  white-space: nowrap!important;
+  border: 0!important;
+}
+
+.dayo-root {
+  --dayo-look-x: 0px;
+  --dayo-look-y: 0px;
+  position: fixed;
+  z-index: 70;
+  width: 106px;
+  height: 126px;
+  user-select: none;
+  touch-action: none;
+  filter: drop-shadow(0 11px 12px rgba(17, 41, 73, .16));
+  transition: filter .18s ease, transform .22s ease;
+}
+.dayo-root.is-tucked { transform: translateX(var(--dayo-tuck-x, 0)); }
+
+.dayo-root[hidden], .dayo-restore[hidden] { display: none!important; }
+.dayo-root.is-dragging { cursor: grabbing; filter: drop-shadow(0 18px 18px rgba(17, 41, 73, .24)); }
+.dayo-pet { width: 100%; height: 100%; padding: 0; overflow: visible; border: 0; background: transparent; color: inherit; cursor: grab; }
+.dayo-pet:focus-visible { outline: 3px solid rgba(76, 103, 236, .45); outline-offset: 2px; border-radius: 36px; }
+.dayo-svg { display: block; width: 100%; height: 112px; overflow: visible; transform-origin: 50% 90%; animation: dayo-float 4.6s ease-in-out infinite; }
+.dayo-name { display: block; width: max-content; margin: -3px auto 0; padding: 3px 8px; border: 1px solid rgba(5, 103, 173, .12); border-radius: 99px; background: rgba(255, 255, 255, .9); color: #53617a; box-shadow: 0 4px 12px rgba(21, 34, 58, .08); font-size: 10px; font-weight: 800; letter-spacing: .5px; }
+.dayo-shadow ellipse { fill: rgba(26, 44, 73, .18); transform-origin: center; animation: dayo-shadow 4.6s ease-in-out infinite; }
+.dayo-face-panel { fill: #bfe5f7; stroke: rgba(2, 91, 147, .18); stroke-width: 1.5px; }
+.dayo-body-shape { fill: var(--dayo-blue); stroke: rgba(2, 66, 115, .25); stroke-width: 1.5px; }
+.dayo-highlight { fill: none; stroke: rgba(255, 255, 255, .25); stroke-width: 5px; stroke-linecap: round; }
+.dayo-limb-motion { transform-box: fill-box; transform-origin: center; }
+.dayo-limb-outline, .dayo-limb { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.dayo-limb-outline { stroke: rgba(255, 255, 255, .92); stroke-width: 10px; }
+.dayo-limb { stroke: #10243b; stroke-width: 6px; }
+.dayo-eye-motion, .dayo-eye-blink { transform-box: fill-box; transform-origin: center; }
+.dayo-eye-motion { transition: transform .2s ease; }
+.dayo-eye-blink { animation: dayo-blink 5.7s infinite; }
+.dayo-eye { fill: #fff; stroke: #10243b; stroke-width: 2px; }
+.dayo-pupil { fill: #10243b; pointer-events: none; transform: translate(var(--dayo-look-x), var(--dayo-look-y)); transition: transform .18s ease-out; }
+.dayo-root.is-dragging .dayo-pupil { transition: none; }
+.dayo-root:not(.is-dragging):hover .dayo-pupil { transform: translate(0, 0); }
+.dayo-brow { fill: none; stroke: #fff; stroke-width: 2.8px; stroke-linecap: round; filter: drop-shadow(0 1px 1px rgba(7, 63, 105, .25)); transition: transform .2s ease; }
+.dayo-nose { fill: none; stroke: #073f69; stroke-width: 2.2px; stroke-linecap: round; stroke-linejoin: round; opacity: .72; }
+.dayo-mouth-group { transform-box: fill-box; transform-origin: center; filter: drop-shadow(0 2px 1px rgba(7, 63, 105, .22)); transition: transform .22s ease; }
+.dayo-mouth-outline, .dayo-mouth { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.dayo-mouth-outline { stroke: #073f69; stroke-width: 14px; opacity: .94; }
+.dayo-mouth { stroke: var(--dayo-yellow); stroke-width: 8px; transition: stroke-width .22s ease; }
+.dayo-cheeks { fill: #f58c9a; opacity: .3; transition: opacity .2s ease; }
+.dayo-feet { opacity: .9; }
+.dayo-root:hover .dayo-svg { animation-play-state: paused; transform: translateY(-2px) rotate(-1deg); }
+.dayo-root:hover .dayo-mouth-group { transform: scaleX(1.06) scaleY(1.07); }
+
+.dayo-root.is-answering .dayo-svg,
+.dayo-root.is-answering:hover .dayo-svg { animation: dayo-walk-body .42s ease-in-out infinite; }
+.dayo-root.is-answering .dayo-shadow ellipse { animation: dayo-walk-shadow .42s ease-in-out infinite; }
+.dayo-root.is-answering .dayo-foot-left { animation: dayo-walk-left .42s linear infinite; }
+.dayo-root.is-answering .dayo-foot-right { animation: dayo-walk-right .42s linear infinite; }
+.dayo-root.is-answering .dayo-arm-left { animation: dayo-walk-arm-left .42s linear infinite; }
+.dayo-root.is-answering .dayo-arm-right { animation: dayo-walk-arm-right .42s linear infinite; }
+.dayo-root.is-answering .dayo-pupil,
+.dayo-root.is-answering:hover .dayo-pupil { transform: translate(0, 0); }
+.dayo-root.is-answering .dayo-eye-blink { animation: none; }
+
+.dayo-root[data-mood="curious"] .dayo-brow-left { transform: translateY(-3px) rotate(-8deg); }
+.dayo-root[data-mood="curious"] .dayo-brow-right { transform: translateY(1px) rotate(8deg); }
+.dayo-root[data-mood="thinking"] .dayo-eye-motion-right { transform: scaleY(.35); }
+.dayo-root[data-mood="thinking"] .dayo-mouth-group { transform: rotate(-5deg) scaleX(.76); }
+.dayo-root[data-mood="surprised"] .dayo-eye-motion { transform: scale(1.18); }
+.dayo-root[data-mood="surprised"] .dayo-mouth-group { transform: scaleX(.62) scaleY(.35); }
+.dayo-root[data-mood="surprised"] .dayo-mouth-outline { stroke-width: 17px; }
+.dayo-root[data-mood="surprised"] .dayo-mouth { stroke-width: 11px; }
+.dayo-root[data-mood="silly"] .dayo-eye-motion-left { transform: scaleY(.22) rotate(8deg); }
+.dayo-root[data-mood="silly"] .dayo-eye-motion-right { transform: translateY(3px) scale(1.12); }
+.dayo-root[data-mood="silly"] .dayo-mouth-group { transform: rotate(7deg) scaleX(.9); }
+.dayo-root[data-mood="silly"] .dayo-arm-right { animation: dayo-wave-right .38s ease-in-out 4 alternate; }
+.dayo-root[data-mood="silly"] .dayo-foot-left { animation: dayo-foot-tap-left .3s ease-in-out 5 alternate; }
+.dayo-root[data-mood="sleepy"] .dayo-eye-motion { transform: scaleY(.12); }
+.dayo-root[data-mood="sleepy"] .dayo-brow { transform: translateY(4px); }
+.dayo-root[data-mood="sleepy"] .dayo-svg { animation-duration: 7s; }
+.dayo-root[data-mood="surprised"] .dayo-arm-left { animation: dayo-startle-left .42s ease-out 2 alternate; }
+.dayo-root[data-mood="surprised"] .dayo-arm-right { animation: dayo-startle-right .42s ease-out 2 alternate; }
+.dayo-root[data-mood="playful"] .dayo-arm-left { animation: dayo-wave-left .34s ease-in-out 5 alternate; }
+.dayo-root[data-mood="playful"] .dayo-foot-left { animation: dayo-foot-tap-left .32s ease-in-out 5 alternate; }
+.dayo-root[data-mood="playful"] .dayo-foot-right { animation: dayo-foot-tap-right .32s .16s ease-in-out 5 alternate; }
+.dayo-root[data-mood="proud"] .dayo-mouth-group, .dayo-root[data-mood="celebrate"] .dayo-mouth-group { transform: scaleX(1.13) scaleY(1.1); }
+.dayo-root[data-mood="proud"] .dayo-cheeks, .dayo-root[data-mood="celebrate"] .dayo-cheeks { opacity: .72; }
+.dayo-root[data-mood="celebrate"] .dayo-svg { animation: dayo-celebrate .56s ease-in-out 3; }
+.dayo-root[data-mood="celebrate"] .dayo-arm-left { animation: dayo-wave-left .35s ease-in-out 5 alternate; }
+.dayo-root[data-mood="celebrate"] .dayo-arm-right { animation: dayo-wave-right .35s ease-in-out 5 alternate; }
+.dayo-root.is-quiet .dayo-svg { animation-duration: 7s; }
+
+.dayo-bubble {
+  position: absolute;
+  right: 84px;
+  bottom: 62px;
+  width: max-content;
+  max-width: 250px;
+  padding: 10px 13px;
+  border: 1px solid #e0e5ef;
+  border-radius: 14px 14px 4px 14px;
+  background: rgba(255, 255, 255, .97);
+  color: #2b3850;
+  box-shadow: 0 13px 32px rgba(22, 37, 62, .16);
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.42;
+  opacity: 0;
+  /* Die Blase liegt oft über Knöpfen. Ein Tipp muss sie durchdringen, sonst trifft er den Knopf nicht. */
+  pointer-events: none;
+  transform: translateY(7px) scale(.96);
+  transform-origin: 100% 100%;
+  transition: opacity .2s ease, transform .2s ease;
+}
+.dayo-root[data-side="left"] .dayo-bubble { right: auto; left: 84px; border-radius: 14px 14px 14px 4px; transform-origin: 0 100%; }
+.dayo-bubble.is-visible { opacity: 1; transform: translateY(0) scale(1); }
+
+.dayo-panel {
+  position: fixed;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  width: min(402px, calc(100vw - 24px));
+  height: min(590px, calc(100vh - 24px));
+  height: min(590px, calc(100dvh - 24px));
+  overflow: hidden;
+  border: 1px solid rgba(215, 222, 235, .95);
+  border-radius: 22px;
+  background: rgba(253, 254, 255, .98);
+  box-shadow: var(--dayo-panel-shadow);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px) scale(.975);
+  transform-origin: bottom right;
+  transition: opacity .2s ease, transform .2s ease;
+  backdrop-filter: blur(18px);
+}
+.dayo-panel.is-open { opacity: 1; pointer-events: auto; transform: translateY(0) scale(1); }
+.dayo-panel-header { display: grid; grid-template-columns: 38px 1fr 36px 36px; gap: 9px; align-items: center; padding: 15px 16px; border-bottom: 1px solid #e8ecf3; background: linear-gradient(135deg, #f2f7ff, #fff9ec); }
+.dayo-panel-header strong { display: block; color: #16243a; font: 800 15px 'Plus Jakarta Sans', sans-serif; }
+.dayo-panel-header small { display: block; margin-top: 2px; color: #748299; font-size: 11px; }
+.dayo-panel-avatar { position: relative; display: grid; place-items: center; width: 38px; height: 38px; border-radius: 13px; background: linear-gradient(145deg, #0875c3, #045c9e); color: #fff; box-shadow: 0 6px 13px rgba(5, 103, 173, .22); font: 800 22px 'Plus Jakarta Sans', sans-serif; }
+.dayo-panel-avatar i { position: absolute; right: 5px; bottom: -2px; left: 5px; height: 8px; border: solid var(--dayo-yellow); border-width: 0 0 4px; border-radius: 0 0 50% 50%; }
+.dayo-icon-button { display: grid; place-items: center; width: 34px; height: 34px; padding: 0; border: 0; border-radius: 10px; background: transparent; color: #6c7a91; font-size: 21px; font-weight: 700; }
+.dayo-icon-button:hover { background: #e9eef8; color: #32415a; }
+.dayo-icon-button:focus-visible, .dayo-suggestions button:focus-visible, .dayo-answer-actions button:focus-visible, .dayo-settings button:focus-visible { outline: 2px solid #667cf0; outline-offset: 2px; }
+
+.dayo-settings { padding: 10px 14px; border-bottom: 1px solid #e7ebf3; background: #f7f9fc; }
+.dayo-settings button { margin: 0 6px 5px 0; padding: 7px 9px; border: 1px solid #dce2ee; border-radius: 9px; background: #fff; color: #53627a; font-size: 11px; font-weight: 750; }
+.dayo-settings button:hover { border-color: #b8c3e7; color: #4257c4; }
+.dayo-settings p { margin: 4px 0 0; color: #8692a5; font-size: 10px; }
+.dayo-provider { display: flex; align-items: center; gap: 6px; padding: 8px 16px 2px; color: #8490a3; font-size: 10px; font-weight: 700; }
+.dayo-provider-dot { width: 7px; height: 7px; border-radius: 50%; background: #20b894; box-shadow: 0 0 0 3px rgba(32, 184, 148, .12); }
+.dayo-panel.uses-local-ai .dayo-provider-dot { background: #7b5ce4; box-shadow: 0 0 0 3px rgba(123, 92, 228, .13); }
+
+.dayo-messages { flex: 1 1 auto; min-height: 140px; overflow-y: auto; padding: 13px 14px 8px; scrollbar-width: thin; scrollbar-color: #c7cfdd transparent; }
+.dayo-message { display: flex; gap: 9px; max-width: 92%; margin: 0 0 12px; animation: dayo-message-in .22s ease both; }
+.dayo-message p { margin: 4px 0 0; line-height: 1.5; }
+.dayo-message.is-assistant { align-items: flex-start; color: #39475e; font-size: 12px; }
+.dayo-message.is-assistant > div { padding: 11px 12px; border: 1px solid #e6eaf2; border-radius: 5px 15px 15px 15px; background: #fff; box-shadow: 0 5px 14px rgba(30, 47, 75, .06); }
+.dayo-message.is-assistant strong { color: #1d2c44; font-size: 12px; }
+.dayo-data-source { display: inline-block; margin-top: 9px; padding: 3px 7px; border: 1px solid #cce9df; border-radius: 99px; background: #effaf6; color: #287660; font-size: 9px; font-weight: 800; letter-spacing: .01em; }
+.dayo-answer-feedback { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 10px; padding-top: 9px; border-top: 1px solid #eef1f6; color: #8a95a8; font-size: 9px; font-weight: 750; }
+.dayo-answer-feedback > button { display: grid; place-items: center; width: 29px; height: 29px; padding: 0; border: 1px solid #e0e5ee; border-radius: 10px; background: #f8f9fc; filter: grayscale(.25); font-size: 14px; transition: transform .16s ease, border-color .16s ease, background .16s ease, box-shadow .16s ease; }
+.dayo-answer-feedback > button:hover { transform: translateY(-2px) scale(1.05); border-color: #c8d1e2; background: #fff; box-shadow: 0 5px 12px rgba(35, 48, 75, .1); filter: none; }
+.dayo-answer-feedback > button[data-dayo-rating="1"].is-selected { border-color: #87d8bd; background: #eaf9f3; box-shadow: 0 0 0 3px rgba(43, 181, 139, .1); filter: none; }
+.dayo-answer-feedback > button[data-dayo-rating="-1"].is-selected { border-color: #f0bd9e; background: #fff2e9; box-shadow: 0 0 0 3px rgba(239, 144, 84, .1); filter: none; }
+.dayo-feedback-detail { flex: 1 0 100%; }
+.dayo-feedback-form { display: grid; gap: 7px; margin-top: 4px; padding: 10px; border: 1px solid #f0d9c7; border-radius: 11px; background: linear-gradient(145deg, #fffaf5, #fff); box-shadow: inset 3px 0 #f1a466; animation: dayo-message-in .2s ease both; }
+.dayo-feedback-form label { color: #5f5360; font-size: 10px; font-weight: 850; }
+.dayo-feedback-form textarea { width: 100%; min-height: 66px; margin: 0; padding: 8px 9px; resize: vertical; border: 1px solid #e4d6d0; border-radius: 9px; background: #fff; color: #354156; font: inherit; font-size: 10px; line-height: 1.45; }
+.dayo-feedback-form textarea:focus { outline: 0; border-color: #e6a579; box-shadow: 0 0 0 3px rgba(230, 165, 121, .12); }
+.dayo-feedback-form > div { display: flex; gap: 6px; }
+.dayo-feedback-form button { padding: 6px 8px; border: 1px solid #e2d4cd; border-radius: 8px; background: #fff; color: #6a5960; font-size: 9px; font-weight: 850; }
+.dayo-feedback-form button[type="submit"] { border-color: #e89760; background: linear-gradient(135deg, #f2a168, #ea8555); color: #fff; }
+.dayo-feedback-form button:disabled { cursor: wait; opacity: .55; }
+.dayo-feedback-form small { min-height: 12px; color: #c45454; font-size: 9px; }
+.dayo-feedback-thanks { color: #34816a; font-size: 9px; font-weight: 850; }
+.feedback-negative .dayo-feedback-thanks { color: #a26743; }
+.dayo-message-mark { flex: 0 0 25px; display: grid; place-items: center; width: 25px; height: 25px; border-radius: 9px; background: var(--dayo-blue); color: #fff; font-weight: 850; }
+.dayo-message.is-user { max-width: 82%; margin-left: auto; padding: 10px 12px; border-radius: 15px 5px 15px 15px; background: linear-gradient(135deg, #536be6, #7759d9); color: #fff; box-shadow: 0 6px 15px rgba(83, 107, 230, .16); font-size: 12px; }
+.dayo-message.is-user p { margin: 0; }
+.dayo-message ol { margin: 9px 0 0; padding-left: 18px; }
+.dayo-message li { margin: 4px 0; line-height: 1.4; }
+.dayo-answer-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.dayo-answer-actions button { padding: 6px 8px; border: 1px solid #d9dff0; border-radius: 8px; background: #f1f4ff; color: #4b60ce; font-size: 10px; font-weight: 800; }
+.dayo-answer-actions button:hover { border-color: #aeb9ee; background: #e8edff; }
+.dayo-answer-actions span { margin-left: 3px; }
+.dayo-typing { display: flex; gap: 4px; width: max-content; margin: 0 0 12px 34px; padding: 10px 13px; border: 1px solid #e6eaf2; border-radius: 5px 14px 14px; background: #fff; }
+.dayo-typing i { width: 5px; height: 5px; border-radius: 50%; background: #71809a; animation: dayo-typing 1s infinite ease-in-out; }
+.dayo-typing i:nth-child(2) { animation-delay: .14s; }
+.dayo-typing i:nth-child(3) { animation-delay: .28s; }
+
+.dayo-suggestions { flex: 0 0 auto; display: flex; align-items: center; gap: 6px; padding: 5px 14px 10px; overflow-x: auto; scrollbar-width: none; }
+.dayo-suggestions::-webkit-scrollbar { display: none; }
+.dayo-suggestions button { flex: 0 0 auto; max-width: 210px; padding: 7px 9px; overflow: hidden; border: 1px solid #e0e5ef; border-radius: 99px; background: #fff; color: #5a6880; text-overflow: ellipsis; white-space: nowrap; font-size: 10px; font-weight: 750; }
+.dayo-suggestions button:hover { border-color: #bfc9ef; background: #f2f4ff; color: #4d61d7; }
+.dayo-form { display: grid; grid-template-columns: 1fr 42px; gap: 8px; align-items: end; padding: 11px 13px 13px; border-top: 1px solid #e7ebf3; background: #fff; }
+.dayo-form textarea { min-height: 42px; max-height: 96px; margin: 0; padding: 10px 11px; resize: vertical; border-color: #dce2ec; border-radius: 12px; font-size: 12px; line-height: 1.35; }
+.dayo-form textarea:focus { outline: 0; border-color: #9caae9; box-shadow: 0 0 0 3px rgba(76, 103, 236, .09); }
+.dayo-form button { display: grid; place-items: center; width: 42px; height: 42px; padding: 0; border: 0; border-radius: 12px; background: linear-gradient(135deg, #5269e6, #7659da); color: #fff; box-shadow: 0 7px 15px rgba(82, 105, 230, .22); }
+.dayo-form button:disabled { cursor: wait; opacity: .55; }
+.dayo-form svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+.dayo-restore { position: fixed; z-index: 69; right: -5px; top: 58%; display: grid; place-items: center; width: 43px; height: 55px; padding: 0 5px 0 0; border: 1px solid #d7deea; border-radius: 18px 0 0 18px; background: #fff; color: var(--dayo-blue); box-shadow: 0 8px 24px rgba(21, 34, 58, .15); font: 850 23px 'Plus Jakarta Sans', sans-serif; }
+.dayo-restore:hover { right: 0; }
+.dayo-restore i { position: absolute; right: 6px; bottom: 8px; left: 5px; height: 7px; border: solid var(--dayo-yellow); border-width: 0 0 4px; border-radius: 0 0 50% 50%; }
+
+.dayo-confetti { position: absolute; inset: 10px 5px auto; height: 70px; pointer-events: none; }
+.dayo-confetti i { --angle: calc(var(--i) * 36deg); position: absolute; left: 50%; top: 48px; width: 6px; height: 10px; border-radius: 2px; background: hsl(calc(32 + var(--i) * 23) 84% 57%); animation: dayo-confetti 1.5s cubic-bezier(.16, .72, .23, 1) forwards; transform: rotate(var(--angle)); }
+
+@keyframes dayo-float { 0%, 100% { transform: translateY(0) rotate(0); } 45% { transform: translateY(-5px) rotate(1deg); } 70% { transform: translateY(-2px) rotate(-1deg); } }
+@keyframes dayo-shadow { 0%, 100% { transform: scaleX(1); opacity: .7; } 45% { transform: scaleX(.82); opacity: .45; } }
+@keyframes dayo-blink { 0%, 44%, 48%, 100% { transform: scaleY(1); } 46% { transform: scaleY(.08); } }
+@keyframes dayo-celebrate { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-12px) rotate(3deg); } }
+@keyframes dayo-walk-body { 0%, 100% { transform: translateY(0) rotate(-.6deg); } 50% { transform: translateY(-4px) rotate(.6deg); } }
+@keyframes dayo-walk-shadow { 0%, 100% { transform: scaleX(1); opacity: .72; } 50% { transform: scaleX(.78); opacity: .42; } }
+@keyframes dayo-walk-left { 0%, 100% { transform: translateY(-1px) rotate(17deg); } 50% { transform: translateY(-6px) rotate(-17deg); } }
+@keyframes dayo-walk-right { 0%, 100% { transform: translateY(-6px) rotate(-17deg); } 50% { transform: translateY(-1px) rotate(17deg); } }
+@keyframes dayo-walk-arm-left { 0%, 100% { transform: rotate(-13deg) translateY(-2px); } 50% { transform: rotate(13deg) translateY(1px); } }
+@keyframes dayo-walk-arm-right { 0%, 100% { transform: rotate(13deg) translateY(1px); } 50% { transform: rotate(-13deg) translateY(-2px); } }
+@keyframes dayo-wave-left { to { transform: rotate(22deg) translate(-3px, -5px); } }
+@keyframes dayo-wave-right { to { transform: rotate(-24deg) translate(3px, -6px); } }
+@keyframes dayo-startle-left { to { transform: rotate(-24deg) translate(-4px, -4px); } }
+@keyframes dayo-startle-right { to { transform: rotate(24deg) translate(4px, -4px); } }
+@keyframes dayo-foot-tap-left { to { transform: translateY(-4px) rotate(-11deg); } }
+@keyframes dayo-foot-tap-right { to { transform: translateY(-4px) rotate(11deg); } }
+@keyframes dayo-message-in { from { opacity: 0; transform: translateY(5px); } }
+@keyframes dayo-typing { 0%, 70%, 100% { transform: translateY(0); opacity: .45; } 35% { transform: translateY(-4px); opacity: 1; } }
+@keyframes dayo-confetti { to { opacity: 0; transform: translate(var(--x), var(--y)) rotate(260deg); } }
+
+/* Dayo gehört nicht über einen Dialog: Dort wartet die Person gerade auf etwas anderes. */
+body.modal-open .dayo-root, body.modal-open .dayo-panel, body.modal-open .dayo-restore { display: none!important; }
+
+/* Platz nach unten, damit sich auch der letzte Knopf einer Seite über Dayo schieben lässt. */
+body.has-dayo .main { padding-bottom: 104px; }
+
+@media (max-width: 900px) {
+  body.nav-open .dayo-root, body.nav-open .dayo-panel, body.nav-open .dayo-restore { visibility: hidden; }
+  .dayo-root { width: 72px; height: 84px; }
+  .dayo-svg { height: 78px; }
+  .dayo-name { display: none; }
+  .dayo-bubble { right: 58px; bottom: 34px; max-width: min(230px, calc(100vw - 90px)); }
+  .dayo-root[data-side="left"] .dayo-bubble { left: 58px; right: auto; }
+  body.has-dayo .main { padding-bottom: 88px; }
+}
+
+@media (max-width: 620px) {
+  .dayo-root { width: 56px; height: 64px; }
+  .dayo-svg { height: 62px; }
+  .dayo-bubble { right: 46px; bottom: 26px; }
+  .dayo-root[data-side="left"] .dayo-bubble { left: 46px; }
+  body.has-dayo .main { padding-bottom: 72px; }
+  .dayo-panel { width: calc(100vw - 24px); height: min(610px, calc(100vh - 24px)); height: min(610px, calc(100dvh - 24px)); border-radius: 20px; }
+  .dayo-panel-header { padding: 13px 14px; }
+  .dayo-message.is-assistant, .dayo-message.is-assistant strong, .dayo-message.is-user { font-size: 14px; }
+  /* Unter 16 Pixeln vergrößert das iPhone die ganze Seite beim Tippen. */
+  .dayo-form textarea, .dayo-feedback-form textarea { font-size: 16px; }
+  .dayo-suggestions button { font-size: 12px; }
+  .dayo-answer-actions button { padding: 9px 11px; font-size: 13px; }
+  .dayo-answer-feedback { font-size: 12px; }
+  .dayo-answer-feedback > button { width: 40px; height: 40px; }
+  .dayo-feedback-form label, .dayo-feedback-form button { font-size: 13px; }
+  .dayo-provider { font-size: 11px; }
+  .dayo-settings button { padding: 10px 12px; font-size: 13px; }
+  .dayo-settings p { font-size: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dayo-svg, .dayo-shadow ellipse, .dayo-eye-blink, .dayo-limb-motion, .dayo-root[data-mood="celebrate"] .dayo-svg, .dayo-confetti i, .dayo-message, .dayo-typing i { animation: none!important; }
+  .dayo-root, .dayo-panel, .dayo-bubble { transition: none!important; }
+}
